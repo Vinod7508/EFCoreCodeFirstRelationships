@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,18 +31,18 @@ namespace Entities
         //OnModelCreating is called the first time our application instantiates the ApplicationContext class
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>()
-                .ToTable("Student");
-            modelBuilder.Entity<Student>()
-                .Property(s => s.Id)
-                .HasColumnName("StudentId");
-            modelBuilder.Entity<Student>()
-                .Property(s => s.Name)
-                .IsRequired()
-                .HasMaxLength(50);
-            modelBuilder.Entity<Student>()
-                .Property(s => s.Age)
-                .IsRequired(false);
+            //modelBuilder.Entity<Student>()
+            //    .ToTable("Student");
+            //modelBuilder.Entity<Student>()
+            //    .Property(s => s.Id)
+            //    .HasColumnName("StudentId");
+            //modelBuilder.Entity<Student>()
+            //    .Property(s => s.Name)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
+            //modelBuilder.Entity<Student>()
+            //    .Property(s => s.Age)
+            //    .IsRequired(false);
 
             //modelBuilder.Entity<Student>()
             //    .Ignore(s => s.LocalCalculation);
@@ -59,30 +60,39 @@ namespace Entities
 
             //configuration of default value for table column via the Fluent API:
 
-            modelBuilder.Entity<Student>()
-           .Property(s => s.IsRegularStudent)
-           .HasDefaultValue(true);
+            // modelBuilder.Entity<Student>()
+            //.Property(s => s.IsRegularStudent)
+            //.HasDefaultValue(true);
 
 
             //we want to have some initial data in the created database.
             //So as soon as we execute our migration files to create and configure the database,
             //we want to populate it with some initial data. This action is called Data Seeding
 
-            modelBuilder.Entity<Student>()
-            .HasData(
-            new Student
-            {
-                Id = Guid.NewGuid(),
-                Name = "John Doe",
-                Age = 30
-            },
-            new Student
-            {
-                Id = Guid.NewGuid(),
-                Name = "Jane Doe",
-                Age = 25
-            }
-             );
+            //modelBuilder.Entity<Student>()
+            //.HasData(
+            //new Student
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Name = "John Doe",
+            //    Age = 30
+            //},
+            //new Student
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Name = "Jane Doe",
+            //    Age = 25
+            //}
+            // );
+
+
+            //after creating configuration class for student entity(studentconfiguration)...we commented out above code written in OnModelCreating Class.
+
+            modelBuilder.ApplyConfiguration(new StudentConfiguration());
+
+
+
+
 
         }
 
