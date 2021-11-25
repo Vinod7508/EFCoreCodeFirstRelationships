@@ -23,7 +23,6 @@ namespace Entities
         { }
 
         //EF Core looks for all the public DbSet properties, inside the application’s context class, and then maps their names to the names of the tables in the database
-        
 
 
         //Using the Fluent API Approach--another type of entity framework configuration.
@@ -64,12 +63,30 @@ namespace Entities
            .Property(s => s.IsRegularStudent)
            .HasDefaultValue(true);
 
+
+            //we want to have some initial data in the created database.
+            //So as soon as we execute our migration files to create and configure the database,
+            //we want to populate it with some initial data. This action is called Data Seeding
+
+            modelBuilder.Entity<Student>()
+            .HasData(
+            new Student
+            {
+                Id = Guid.NewGuid(),
+                Name = "John Doe",
+                Age = 30
+            },
+            new Student
+            {
+                Id = Guid.NewGuid(),
+                Name = "Jane Doe",
+                Age = 25
+            }
+             );
+
         }
 
         public DbSet<Student> Students { get; set; }
-
-
-
 
     }
 }
