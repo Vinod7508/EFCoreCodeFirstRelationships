@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CodeFirstDatabaseMigration.Entities
+namespace Entities
 {
 
     //The context class is another important part of the application.

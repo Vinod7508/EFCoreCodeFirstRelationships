@@ -59,3 +59,5 @@ C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration
 C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration\obj\Debug\netcoreapp3.1\CodeFirstDatabaseMigration.dll
 C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration\obj\Debug\netcoreapp3.1\CodeFirstDatabaseMigration.pdb
 C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration\obj\Debug\netcoreapp3.1\CodeFirstDatabaseMigration.genruntimeconfig.cache
+C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\User\source\repos\CodeFirstDatabaseMigration\CodeFirstDatabaseMigration\bin\Debug\netcoreapp3.1\Entities.pdb
