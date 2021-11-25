@@ -19,7 +19,7 @@ namespace CodeFirstDatabaseMigration.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Entities.Student", b =>
+            modelBuilder.Entity("CodeFirstDatabaseMigration.Entities.Student", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
