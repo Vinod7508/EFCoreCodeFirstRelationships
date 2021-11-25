@@ -23,8 +23,7 @@ namespace CodeFirstDatabaseMigration.Entities
         { }
 
         //EF Core looks for all the public DbSet properties, inside the application’s context class, and then maps their names to the names of the tables in the database
-        public DbSet<Student> Students { get; set; }
-
+        
 
 
         //Using the Fluent API Approach--another type of entity framework configuration.
@@ -44,25 +43,31 @@ namespace CodeFirstDatabaseMigration.Entities
             modelBuilder.Entity<Student>()
                 .Property(s => s.Age)
                 .IsRequired(false);
-            modelBuilder.Entity<Student>()
-                .Ignore(s => s.LocalCalculation);
+
+            //modelBuilder.Entity<Student>()
+            //    .Ignore(s => s.LocalCalculation);
 
             //For the composite key, we have to use only the Fluent API approach because EF Core doesn’t support the Data Annotations approach for that.
-            modelBuilder.Entity<Student>()
-           .HasKey(s => new { s.Id, s.AnotherKeyProperty });
+            //modelBuilder.Entity<Student>()
+            //.HasKey(s => new { s.Id, s.AnotherKeyProperty });
 
             //for adding indexes on db table...fluent api is only one approach
-            modelBuilder.Entity<Student>()
-           .HasIndex(s => s.Id)
-           .HasName("index_name")
-           .IsUnique();
+
+            // modelBuilder.Entity<Student>()
+            //.HasIndex(s => s.Id)
+            //.HasName("index_name")
+            //.IsUnique();
 
             //configuration of default value for table column via the Fluent API:
+
             modelBuilder.Entity<Student>()
            .Property(s => s.IsRegularStudent)
            .HasDefaultValue(true);
 
         }
+
+        public DbSet<Student> Students { get; set; }
+
 
 
 

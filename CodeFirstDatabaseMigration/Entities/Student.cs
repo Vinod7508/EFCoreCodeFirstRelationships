@@ -14,11 +14,12 @@ namespace CodeFirstDatabaseMigration.Entities
         //The model (entity) class is a class that Entity Framework Core uses for mapping to the database table. 
         //efcore naming convention...StudentIDd is primary key here
 
-        [Key]    //to configure a PrimaryKey property via the Data Annotations approach, we have to use the [Key] attribute...we can also use fluent api..check modelbuilderclass
+        //to configure a PrimaryKey property via the Data Annotations approach, we have to use the [Key] attribute...we can also use fluent api..check modelbuilderclass
+        //[Key]
         [Column("StudentId")]
         public Guid Id { get; set; }
 
-        public Guid AnotherKeyProperty { get; set; }
+        //public Guid AnotherKeyProperty { get; set; }
 
 
         //we are using data anotation based entity framework configuration here here.
@@ -30,9 +31,8 @@ namespace CodeFirstDatabaseMigration.Entities
 
         //The [NotMapped] attribute allows us to exclude certain properties from the mapping and thus avoid creating that column in a table.
         //we can do the same thing via the Fluent API approach..check modelbuilder method in applicationContext
-        [NotMapped]
-        public int LocalCalculation { get; set; }
-
+        //[NotMapped]
+        //public int LocalCalculation { get; set; }
 
         public bool IsRegularStudent { get; set; }
 
