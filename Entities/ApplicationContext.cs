@@ -87,12 +87,10 @@ namespace Entities
 
 
             //after creating configuration class for student entity(studentconfiguration)...we commented out above code written in OnModelCreating Class.
+            //refer 
+            //A Better Way for Applying Configuration and Data Seed
 
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
-
-
-
-
 
         }
 
