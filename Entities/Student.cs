@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace Entities
 {
     //Now, to establish a relationship between the Student and the StudentDetails classes we need to add a reference navigation property at both sides.
-
+    //here student class is principal entity
+    
 
     [Table("Student")]
     public class Student
@@ -26,7 +27,7 @@ namespace Entities
 
         //we are using data anotation based entity framework configuration here here.
         [Required]
-        [MaxLength(50, ErrorMessage = "Length must be less then 50 characters")]
+        [MaxLength(50, ErrorMessage = "Length mus be less then 50 characters")]
         public string Name { get; set; }
         public int? Age { get; set; }
 
@@ -39,6 +40,11 @@ namespace Entities
         public bool IsRegularStudent { get; set; }
 
         public StudentDetails StudentDetails { get; set; }
+
+
+        //Convention Approach to Create One-to-Many Relationship(Required not optional as we put studentid in evalution table)
+        public ICollection<Evaluation> Evaluations { get; set; }
+
 
 
     }
