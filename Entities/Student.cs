@@ -46,6 +46,11 @@ namespace Entities
         public ICollection<Evaluation> Evaluations { get; set; }
 
 
+        //We modify Student by providing the navigational property towards the StudentSubject class:
+        public ICollection<StudentSubject> StudentSubjects { get; set; }
+
+
+
 
     }
 }
