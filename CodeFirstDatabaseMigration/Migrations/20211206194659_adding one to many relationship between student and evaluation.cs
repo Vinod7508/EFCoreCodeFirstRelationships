@@ -31,6 +31,9 @@ namespace CodeFirstDatabaseMigration.Migrations
                     AdditionalExplanation = table.Column<string>(nullable: true),
                     StudentId = table.Column<Guid>(nullable: false)
                 },
+
+                //If we look at our entities: Student and Evaluation, we are going to see that we have a required relationship between them.
+                //For this type of relationship, the Cascade deleting action is configured by default
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Evaluation", x => x.EvaluationId);
@@ -39,7 +42,9 @@ namespace CodeFirstDatabaseMigration.Migrations
                         column: x => x.StudentId,
                         principalTable: "Student",
                         principalColumn: "StudentId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Cascade);  
+                    //We can change this type of behavior by modifying the configuration code in the StudentConfiguration class.
+
                 });
 
             migrationBuilder.InsertData(
