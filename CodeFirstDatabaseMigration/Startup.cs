@@ -1,4 +1,4 @@
-using CodeFirstDatabaseMigration.Entities;
+using Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,11 +33,12 @@ namespace CodeFirstDatabaseMigration
             //We are using the AddDbContext extension method to register our ApplicationContext class into the IOC container.
             //Inside the UseSqlSrver method we are providing the connection string to our context class and we can provide additional options as well. 
             services.AddDbContext<ApplicationContext>(opts =>
-       opts.UseSqlServer(Configuration.GetConnectionString("SchoolConnection")));
+            opts.UseSqlServer(Configuration.GetConnectionString("SchoolConnection"),
+                options => options.MigrationsAssembly("CodeFirstDatabaseMigration")));  //we did this to apply migration from another class lib project(entities) 
 
 
-          //Instead of the AddDbContext method, we can use the AddDbContextPool method. We can use either the first or the second method, but with the second method, we enable DbContext pooling.
-          ////This will not create a new instance every time but will check first if there are available instances in the pool and if there are, it will use one of those
+            //Instead of the AddDbContext method, we can use the AddDbContextPool method. We can use either the first or the second method, but with the second method, we enable DbContext pooling.
+            ////This will not create a new instance every time but will check first if there are available instances in the pool and if there are, it will use one of those
 
 
 
